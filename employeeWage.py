@@ -1,7 +1,7 @@
 """
 * @Author: Sachin S Kore
 * @Date: 2021-11-16
-* @Title : To calculate the employee daily wage
+* @Title : To check employee Full time , part time or absent
 """
 import random
 print("Welcome to employee wage computation")
@@ -9,22 +9,29 @@ print("Welcome to employee wage computation")
 
 def check_attendance():
     """
-    Description:
-        This function is to check whether employee is present or absent.
-        Employee daily wage is calculated for full day.
-    """
+       Description:
+           This function is to check whether employee is present or absent.
+           Employee daily wage is calculated for full day and part time.
+       """
+
+    isFullTime = 1
+    isPartTime = 2
+    day_Hour = 0
 
     wage_Per_Hour = 20
 
-    emp_Check = random.randint(0, 1)
+    emp_Check = random.randint(0, 2)
 
-    if emp_Check == 0:
-        print("Employee is present")
-        full_day_Hour = 8
+    if emp_Check == isFullTime:
+        print("Employee is present Full time..... ")
+        day_Hour = 8
+    elif emp_Check == isPartTime:
+        print("Employee is present Part time..... ")
+        day_Hour = 4
     else:
-        print("Employee is absent")
+        print("Employee is absent......")
 
-    employee_Wage = wage_Per_Hour * full_day_Hour
+    employee_Wage = wage_Per_Hour * day_Hour
     print("Employee wage is:", employee_Wage)
 
 
