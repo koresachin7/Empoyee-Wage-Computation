@@ -5,7 +5,6 @@
 """
 import random
 
-
 def calculateHour(attendanceStatus):
     """
     Description:
@@ -31,14 +30,20 @@ def calculateWage():
         this function return total employee wage of a month
     """
     wage_Per_Hour = 20
-    working_Days = 20
+    working_Days = 0
+    total_Working_Hours = 0
+    maximum_Working_Days = 20
+    maximum_Working_Hours = 100
     total_Wage = 0
-    for day in range(working_Days):
+    while working_Days < maximum_Working_Days and total_Working_Hours < maximum_Working_Hours:
         attendance = random.randint(0,2)
         attendanceStatus = switcher.get(attendance)
-        workingHours = calculateHour(attendanceStatus)
-        total_Wage += workingHours * wage_Per_Hour
+        working_Hours = calculateHour(attendanceStatus)
+        total_Wage += working_Hours * wage_Per_Hour
+        total_Working_Hours += working_Hours
+        working_Days += 1
     return total_Wage
+
 
 absent = 0
 isFullTime = 1
@@ -49,6 +54,7 @@ switcher = {
     1: isFullTime,
     2: isFullTime,
 }
+
 if __name__ == '__main__':
     print("Welcome to employee wage computation")
     print("Total employee wage for month is:",calculateWage())
