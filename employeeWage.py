@@ -1,7 +1,7 @@
 """
 * @Author: Sachin S Kore
-* @Date: 2021-11-16
-* @Title :  To check employee moth salary
+* @Date: 2021-11-18
+* @Title :  To Store daily wage with total wage in list
 """
 import random
 
@@ -34,25 +34,30 @@ def get_work_hours(total_working_hours):
 
 def calculate_wage():
     """
-    Description:
-        this function calculate employee wage
-    Return:
-        this function return total employee wage of a month
-    """
+       Description:
+           this function calculate employee wage
+       Return:
+           this function return total employee wage of a month
+       """
     wage_Per_Hour = 20
     working_Days = 0
     total_Working_Hours = 0
     maximum_Working_Days = 20
     maximum_Working_Hours = 100
     total_Wage = 0
+    daily_Wage_List = []
+
     while working_Days < maximum_Working_Days and total_Working_Hours < maximum_Working_Hours:
         attendance = random.randint(0, 2)
         attendance_status = switcher.get(attendance)
         working_Hours = calculate_hour(attendance_status)
-        total_Wage += working_Hours * wage_Per_Hour
+        daily_Wage = working_Hours * wage_Per_Hour
+        daily_Wage_List.append(daily_Wage)
+        total_Wage += daily_Wage
         total_Working_Hours += working_Hours
         working_Days += 1
-        get_work_hours(total_Working_Hours)
+    get_work_hours(total_Working_Hours)
+    print("Daily wage:", daily_Wage_List)
     return total_Wage
 
 
