@@ -1,6 +1,6 @@
 """
 * @Author: Sachin S Kore
-* @Date: 2021-11-16
+* @Date: 2021-11-19
 * @Title :  To Ability to save the total wage
 """
 import random
